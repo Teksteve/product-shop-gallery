@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="PriceScout preview">
+  <rect width="640" height="400" fill="#101418"/>
+  <text x="48" y="76" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="30" fill="#E8ECEF" letter-spacing="-0.5">PriceScout</text>
+  <rect x="48" y="110" width="544" height="120" rx="12" fill="#1A2026" stroke="#2A333C"/>
+  <text x="72" y="150" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600" fill="#E8ECEF">MacBook Pro 14&#8243; M5</text>
+  <text x="72" y="196" font-family="IBM Plex Mono, monospace" font-size="30" font-weight="600" fill="#E8ECEF">$1,749</text>
+  <rect x="220" y="172" width="4" height="34" fill="#3FB27F"/>
+  <text x="236" y="188" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700" fill="#3FB27F">Buy now</text>
+  <text x="236" y="206" font-family="Inter, Arial, sans-serif" font-size="12" fill="#8A96A0">Mid-cycle low, refresh months out</text>
+  <rect x="48" y="248" width="544" height="120" rx="12" fill="#1A2026" stroke="#2A333C"/>
+  <text x="72" y="288" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600" fill="#E8ECEF">Nintendo Switch 2</text>
+  <text x="72" y="334" font-family="IBM Plex Mono, monospace" font-size="30" font-weight="600" fill="#E8ECEF">$449</text>
+  <rect x="220" y="310" width="4" height="34" fill="#E0A458"/>
+  <text x="236" y="326" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700" fill="#E0A458">Wait</text>
+  <text x="236" y="344" font-family="Inter, Arial, sans-serif" font-size="12" fill="#8A96A0">Holiday bundles carry the value</text>
+</svg>
