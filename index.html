@@ -3,264 +3,356 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Product Shop, product design studio in Ottawa</title>
-<meta name="description" content="Product design and UX for teams shipping real software. Twenty years of craft, delivered at AI speed.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="color-scheme" content="light dark">
+<title>The Product Shop</title>
 <style>
-  :root {
-    --bg: #0D0D0C;
-    --surface: #151514;
-    --line: #2A2926;
-    --line-soft: #201F1D;
-    --text: #F2EFE9;
-    --muted: #A6A199;
-    --dim: #6E6A63;
-    --accent: #6FA292;
-    --measure: 34rem;
+  :root{
+    --paper:#F6F4EF; --ink:#1B1A17; --ink-2:#6F6B62; --ink-3:#96917f;
+    --line:#E4E0D7; --panel:#FBFAF7; --panel-2:#EFEBE2;
+    --accent:#146B54; --accent-2:#0E5642; --accent-soft:#146B5416;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: 46rem; margin: 0 auto; padding: 5.5rem 1.5rem 6rem; }
-
-  .eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6875rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--dim);
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#141310; --ink:#F1EEE7; --ink-2:#9C978C; --ink-3:#6f6a5f;
+      --line:#2A2721; --panel:#1B1A16; --panel-2:#232019;
+      --accent:#3FC99E; --accent-2:#63D8B4; --accent-soft:#3FC99E1F;
+    }
   }
 
-  h1 {
-    font-family: 'Newsreader', Georgia, serif;
-    font-weight: 500;
-    font-size: clamp(3rem, 11vw, 5.25rem);
-    line-height: 0.98;
-    letter-spacing: -0.02em;
-    margin: 1rem 0 1.75rem;
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); line-height:1.6;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
+  .wrap{max-width:760px; margin:0 auto; padding:clamp(32px,7vw,84px) clamp(20px,5vw,32px) 84px;}
+  a{color:inherit; text-decoration:none;}
 
-  .lede {
-    font-size: 1.1875rem;
-    line-height: 1.55;
-    color: var(--muted);
-    max-width: var(--measure);
-  }
-  .lede strong { color: var(--text); font-weight: 400; }
+  .eyebrow{font-family:var(--mono); font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3);}
 
-  .meta {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--dim);
-    margin-top: 2.25rem;
-    line-height: 1.9;
+  /* masthead */
+  header h1{
+    font-family:var(--serif); font-weight:600; font-size:clamp(46px,10vw,74px);
+    line-height:1; letter-spacing:-.02em; margin:16px 0 0; text-wrap:balance;
   }
-  .meta span { white-space: nowrap; }
-  .dot { color: var(--line); padding: 0 0.55rem; }
+  header .lede{font-size:clamp(16px,2.6vw,19px); color:var(--ink-2); max-width:58ch; margin:22px 0 0;}
+  header .sig{font-family:var(--mono); font-size:12px; letter-spacing:.03em; color:var(--ink-3); margin-top:20px;}
+  header .sig b{color:var(--ink-2); font-weight:400;}
 
-  section { margin-top: 5.5rem; }
-  .rule {
-    border-bottom: 1px solid var(--line-soft);
-    padding-bottom: 0.875rem;
-    margin-bottom: 2.25rem;
+  /* section scaffolding */
+  section{margin-top:clamp(48px,8vw,76px);}
+  .sec-label{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); padding-bottom:14px; border-bottom:1px solid var(--line); margin-bottom:26px;
   }
+  h2{font-family:var(--serif); font-weight:600; font-size:clamp(26px,5vw,34px); letter-spacing:-.015em; line-height:1.1; margin:0; text-wrap:balance;}
+  .intro{font-size:16px; color:var(--ink-2); max-width:60ch; margin:14px 0 0;}
+  .intro strong, .lead strong{color:var(--ink); font-weight:600;}
 
-  h2 {
-    font-family: 'Newsreader', Georgia, serif;
-    font-weight: 500;
-    font-size: 1.5rem;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.5rem;
-  }
+  /* building blocks */
+  .blocks{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:8px;}
+  .block{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 18px 20px;}
+  .block .k{font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--accent-2);}
+  .block .t{font-family:var(--serif); font-size:21px; font-weight:600; margin-top:8px;}
+  .block .d{font-size:13.5px; color:var(--ink-2); margin-top:6px;}
+  .throughline{margin-top:20px; font-size:15px; color:var(--ink-2); max-width:62ch;}
 
-  p { max-width: var(--measure); color: var(--muted); }
-  p + p { margin-top: 1rem; }
+  /* team / agents */
+  .agents{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  .agent{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:20px 20px 22px;}
+  .agent .role{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);}
+  .agent .name{font-family:var(--serif); font-size:22px; font-weight:600; letter-spacing:-.01em; margin-top:7px;}
+  .agent .desc{font-size:13.5px; color:var(--ink-2); margin-top:9px;}
+  .agent .reads{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); margin-top:14px; padding-top:12px; border-top:1px solid var(--line); letter-spacing:.02em;}
 
-  .cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 46rem) { .cards { grid-template-columns: repeat(3, 1fr); } }
+  /* two-column knowledge / loading */
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:22px;}
+  .card > .h{display:flex; align-items:baseline; gap:10px; margin-bottom:4px;}
+  .card > .h .ttl{font-family:var(--sans); font-weight:600; font-size:15px;}
+  .card > .h .tag{font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); border:1px solid var(--line); border-radius:999px; padding:3px 8px;}
+  .card > .sub{font-size:13px; color:var(--ink-3); margin-bottom:16px;}
+  .files{display:flex; flex-direction:column; gap:13px;}
+  .file .fn{font-family:var(--mono); font-size:13px; color:var(--ink); font-weight:600;}
+  .file .fd{font-size:13px; color:var(--ink-2); margin-top:3px;}
+  .accent-card{border-color:color-mix(in srgb,var(--accent) 34%, var(--line)); background:var(--accent-soft);}
 
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 1.375rem 1.25rem 1.5rem;
-  }
-  .card .eyebrow { color: var(--accent); }
-  .card h3 {
-    font-family: 'Newsreader', Georgia, serif;
-    font-weight: 500;
-    font-size: 1.3125rem;
-    letter-spacing: -0.01em;
-    margin: 0.625rem 0 0.625rem;
-  }
-  .card p { font-size: 0.9375rem; line-height: 1.55; }
+  /* humanize / quality floor */
+  .tells{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:4px;}
+  .tell{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px;}
+  .tell .m{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3);}
+  .tell .x{font-size:13px; color:var(--ink-2); margin-top:6px;}
+  .antidote{margin-top:16px; padding:18px 20px; border:1px solid color-mix(in srgb,var(--accent) 34%, var(--line)); background:var(--accent-soft); border-radius:14px; font-size:14.5px; color:var(--ink);}
+  .antidote b{color:var(--accent-2);}
 
-  .work { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 40rem) { .work { grid-template-columns: repeat(2, 1fr); } }
+  /* workspaces */
+  .spaces{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .space{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px;}
+  .space .n{font-family:var(--serif); font-size:19px; font-weight:600;}
+  .space .r{font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-2); margin-top:4px;}
+  .space .d{font-size:13px; color:var(--ink-2); margin-top:9px;}
+  .rule{margin-top:16px; font-size:14.5px; color:var(--ink-2);}
 
-  a.tile {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    overflow: hidden;
-    transition: border-color 140ms ease;
-  }
-  a.tile:hover { border-color: var(--dim); }
-  a.tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .tile .thumb {
-    aspect-ratio: 16 / 10;
-    background: #0A0A09;
-    border-bottom: 1px solid var(--line);
-    overflow: hidden;
-  }
-  .tile .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .tile .body { padding: 1.125rem 1.25rem 1.375rem; }
-  .tile h3 {
-    font-family: 'Newsreader', Georgia, serif;
-    font-weight: 500;
-    font-size: 1.25rem;
-    margin: 0.5rem 0 0.5rem;
-  }
-  .tile p { font-size: 0.9375rem; line-height: 1.5; }
-  .tile .status {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6875rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--dim);
-    margin-top: 1rem;
-    display: block;
-  }
+  /* habits */
+  .habits{display:grid; grid-template-columns:1fr 1fr; gap:12px 24px;}
+  .habit{padding:14px 0; border-top:1px solid var(--line);}
+  .habit .hn{font-weight:600; font-size:14.5px; display:flex; align-items:center; gap:9px;}
+  .habit .hn::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--accent); flex-shrink:0;}
+  .habit .hd{font-size:13px; color:var(--ink-2); margin-top:6px; padding-left:16px;}
 
-  .terms { border-top: 1px solid var(--line-soft); margin-top: 1.5rem; padding-top: 1.5rem; }
-  .terms dl { display: grid; gap: 1.25rem; }
-  @media (min-width: 40rem) { .terms dl { grid-template-columns: repeat(2, 1fr); gap: 1.75rem 2.5rem; } }
-  .terms dt {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6875rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.375rem;
-  }
-  .terms dd { color: var(--muted); font-size: 0.9375rem; line-height: 1.55; }
+  /* projects index */
+  .idx-head{display:flex; align-items:baseline; justify-content:space-between; padding-bottom:12px; border-bottom:1px solid var(--line);}
+  .idx-head .l{font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);}
+  .idx-head .r{font-family:var(--mono); font-size:11.5px; color:var(--ink-3);}
+  .row{display:grid; grid-template-columns:1fr auto; align-items:center; gap:18px; padding:22px 6px; border-bottom:1px solid var(--line);}
+  a.row{transition:padding-left .2s, background .2s;}
+  a.row:hover{background:var(--accent-soft); padding-left:16px;}
+  .p-name{font-family:var(--serif); font-size:clamp(23px,4.5vw,29px); font-weight:600; letter-spacing:-.015em; line-height:1.1;}
+  a.row:hover .p-name{color:var(--accent-2);}
+  .p-desc{font-size:14px; color:var(--ink-2); margin-top:6px; max-width:52ch;}
+  .p-tags{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px;}
+  .tag2{font-family:var(--mono); font-size:11px; letter-spacing:.03em; color:var(--ink-2); background:var(--panel-2); border:1px solid var(--line); padding:4px 9px; border-radius:999px; white-space:nowrap;}
+  .aside{display:flex; flex-direction:column; align-items:flex-end; gap:10px; text-align:right;}
+  .status{font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; display:inline-flex; align-items:center; gap:6px; color:var(--ink-3);}
+  .status .d{width:6px; height:6px; border-radius:50%; background:currentColor;}
+  .status.live{color:var(--accent-2);}
+  .status.live .d{background:var(--accent);}
+  .cta{font-family:var(--mono); font-size:12px; color:var(--ink-3); display:inline-flex; align-items:center; gap:7px;}
+  a.row:hover .cta{color:var(--accent);}
+  .cta .arw{transition:transform .18s;}
+  a.row:hover .cta .arw{transform:translateX(3px);}
+  .row.soon{opacity:.72;}
+  .row.soon .p-name{color:var(--ink-2);}
 
-  .contact a {
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 1px;
-  }
-  .contact a:hover { border-color: var(--accent); }
+  footer{margin-top:64px; padding-top:22px; border-top:1px solid var(--line);
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-3); letter-spacing:.03em;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
 
-  footer {
-    margin-top: 5.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--line-soft);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6875rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--dim);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    a.tile { transition: none; }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:8px;}
+  @media (max-width:640px){
+    .blocks, .agents, .two, .tells, .spaces, .habits{grid-template-columns:1fr;}
+    .row{grid-template-columns:1fr; gap:14px;}
+    .aside{flex-direction:row; align-items:center; justify-content:flex-start; gap:16px;}
   }
 </style>
 </head>
 <body>
-<div class="wrap">
 
+<div class="wrap">
   <header>
-    <div class="eyebrow">Product design studio <span class="dot">&middot;</span> Ottawa</div>
+    <div class="eyebrow">Product design studio &middot; Ottawa</div>
     <h1>The Product Shop</h1>
-    <p class="lede">Software that feels obvious to use rarely happens by accident. <strong>It is the result of someone caring about the details your users will never consciously notice.</strong> That is the work.</p>
-    <div class="meta">
-      <span>Steve MacKenzie</span><span class="dot">&middot;</span><span>Product design &amp; UX</span><span class="dot">&middot;</span><span>Twenty years of craft, delivered at AI speed</span>
-    </div>
+    <p class="lede">A reusable system for running every client and product to one high standard. A small team of agents does the work, reading from a shared shelf of knowledge and reaching for a procedure when a task repeats. Below is how it works, and what it is building.</p>
+    <div class="sig"><b>Steve MacKenzie</b> &nbsp;&middot;&nbsp; Product design &amp; UX &nbsp;&middot;&nbsp; Twenty years of craft, delivered at AI speed</div>
   </header>
 
   <section>
-    <div class="rule"><div class="eyebrow">What you get</div></div>
-    <div class="cards">
-      <div class="card">
-        <div class="eyebrow">Design</div>
-        <h3>A real second opinion</h3>
-        <p>Your flows reviewed against a bar most teams do not have time to hold. You find the friction before your users do.</p>
+    <div class="sec-label">The idea &middot; three building blocks</div>
+    <div class="blocks">
+      <div class="block"><div class="k">Knowledge</div><div class="t">md files</div><div class="d">The shared shelf. Philosophies and per-client briefs that get read, not run.</div></div>
+      <div class="block"><div class="k">Workers</div><div class="t">agents</div><div class="d">Persistent roles, each with a job and a single lens. The team.</div></div>
+      <div class="block"><div class="k">Procedures</div><div class="t">skills</div><div class="d">Packaged how-tos for a task that recurs. Reached for, not front-loaded.</div></div>
+    </div>
+    <p class="throughline">The through-line of everything the shop makes is Apple's standard of care, applied as craft principles in design and marketing and as rigor in engineering. The principles are universal. Voice and specifics stay per client.</p>
+  </section>
+
+  <section>
+    <div class="sec-label">The team &middot; agents</div>
+    <div class="agents">
+      <div class="agent">
+        <div class="role">Design lead</div>
+        <div class="name">Usability &amp; Design Critic</div>
+        <div class="desc">Reviews flows and screens for clarity, friction, and craft against an uncompromising bar. Ends every review with the one change that lifts good to exceptional.</div>
+        <div class="reads">reads: design philosophy &middot; standards &middot; client design system</div>
       </div>
-      <div class="card">
-        <div class="eyebrow">Build</div>
-        <h3>Prototypes that run</h3>
-        <p>Not mockups. Clickable builds you can put in front of a customer the same week you asked for them.</p>
+      <div class="agent">
+        <div class="role">Marketing lead</div>
+        <div class="name">Copy &amp; Brand Writer</div>
+        <div class="desc">Applies Apple's marketing craft: say one thing, human meaning over specs, confident restraint. Writes each client in its own voice, never a copied one.</div>
+        <div class="reads">reads: marketing philosophy &middot; standards &middot; client voice</div>
       </div>
-      <div class="card">
-        <div class="eyebrow">Hand off</div>
-        <h3>Work that outlives me</h3>
-        <p>Design systems and documentation your team can run without calling me. The engagement ends; the standard stays.</p>
+      <div class="agent">
+        <div class="role">Technical direction</div>
+        <div class="name">CTO / Tech Strategy</div>
+        <div class="desc">Architecture calls, build versus buy, technical risk, scoping and sequencing. Says plainly when something is over-engineered. Decides what to build.</div>
+        <div class="reads">reads: philosophy &middot; standards &middot; project context</div>
+      </div>
+      <div class="agent">
+        <div class="role">Engineering rigor</div>
+        <div class="name">Principal Engineer</div>
+        <div class="desc">Code review with a real bar. Security-first thinking, infrastructure quality, and design-aware craft. Treats how it is built as a design problem in its own right.</div>
+        <div class="reads">reads: philosophy &middot; standards &middot; security &amp; eng standards</div>
+      </div>
+      <div class="agent">
+        <div class="role">Operations</div>
+        <div class="name">Accounting Assistant</div>
+        <div class="desc">Preps the monthly review, categorises, and flags anomalies for a human to decide. Advisory only, never the final call.</div>
+        <div class="reads">reads: standards &middot; finance workflow notes</div>
+      </div>
+      <div class="agent">
+        <div class="role">Business &amp; strategy</div>
+        <div class="name">Founder's Advisor</div>
+        <div class="desc">The outside view on the firm itself: positioning, growth, and the forward look. Willing to tell you the uncomfortable truth rather than the flattering one.</div>
+        <div class="reads">reads: standards &middot; firm strategy</div>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="rule"><div class="eyebrow">Work</div></div>
-    <div class="work">
-      <a class="tile" href="pricescout/">
-        <div class="thumb"><img src="pricescout/thumb.svg" alt="PriceScout interface preview"></div>
-        <div class="body">
-          <div class="eyebrow">Proto-001</div>
-          <h3>PriceScout</h3>
-          <p>Search any electronics product and get the live offers, the best price, and a plain call on whether to buy now or wait.</p>
-          <span class="status">Static preview</span>
+    <div class="sec-label">The shelf &middot; md files (knowledge)</div>
+    <div class="two">
+      <div class="card">
+        <div class="h"><span class="ttl">The Product Shop</span><span class="tag">Universal</span></div>
+        <div class="sub">True for every client and product. Written once, travels everywhere.</div>
+        <div class="files">
+          <div class="file"><div class="fn">design-philosophy.md</div><div class="fd">The timeless design worldview: Rams, the Apple HIG stance, the questions great design asks.</div></div>
+          <div class="file"><div class="fn">marketing-philosophy.md</div><div class="fd">Apple's marketing craft as principles: say one thing, lead with human meaning, earn the emotion honestly.</div></div>
+          <div class="file"><div class="fn">humanize-standard.md</div><div class="fd">Never be mistaken for AI-generated. The tells per medium, and the antidote of specific human choices.</div></div>
+          <div class="file"><div class="fn">engineering-standards.md</div><div class="fd">The build bar: security-first, threat modelling, the code-review checklist.</div></div>
+          <div class="file"><div class="fn">roles/*.md</div><div class="fd">One job description per agent above. These define the team.</div></div>
         </div>
-      </a>
+      </div>
+      <div class="card">
+        <div class="h"><span class="ttl">Per client / product</span><span class="tag">Swappable</span></div>
+        <div class="sub">Same structure each time, different values. A new client is a short file.</div>
+        <div class="files">
+          <div class="file"><div class="fn">&lt;client&gt;/design-system.md</div><div class="fd">Tokens, colour, type, voice, components. References the philosophy rather than repeating it.</div></div>
+          <div class="file"><div class="fn">&lt;client&gt;/context.md</div><div class="fd">What the product is, its current state, constraints, and gotchas.</div></div>
+          <div class="file"><div class="fn">&lt;client&gt;/decisions.md</div><div class="fd">An append-only log, one dated entry per decision with its reasoning. Once recorded, a decision is settled.</div></div>
+        </div>
+        <div class="sub" style="margin:16px 0 0">One folder per client: quench, pricescout, cheddar, mindstride, dexacam.</div>
+      </div>
     </div>
   </section>
 
   <section>
-    <div class="rule"><div class="eyebrow">How engagements work</div></div>
-    <div class="terms">
-      <dl>
-        <div>
-          <dt>Priced by deliverable</dt>
-          <dd>You know the cost before the work starts. No hourly meter running while you think.</dd>
+    <div class="sec-label">The loading model &middot; depth without bloat</div>
+    <p class="lead intro">Anything loaded <strong>every session</strong> competes for a limited instruction budget. Load every philosophy into every conversation and the agents follow <strong>every</strong> standard worse. The fix is progressive disclosure: keep the always-on layer lean, and load depth only when that kind of work is actually happening.</p>
+    <div class="two" style="margin-top:22px">
+      <div class="card accent-card">
+        <div class="h"><span class="ttl">Always on</span><span class="tag">Lean core</span></div>
+        <div class="sub">Loaded every session. Only what is universally true and short.</div>
+        <div class="files">
+          <div class="file"><div class="fn">firm identity + hard rules</div><div class="fd">Who the shop is and the non-negotiables: never em dashes, benefit-first, honest over impressive, show drafts first.</div></div>
+          <div class="file"><div class="fn">project map (per client)</div><div class="fd">What this product is, its stack, current state, and key gotchas. The lean context file.</div></div>
         </div>
-        <div>
-          <dt>One person, start to finish</dt>
-          <dd>The person you brief is the person who does the work. Nothing gets lost in a handoff.</dd>
+        <div class="sub" style="margin:16px 0 0">Editing test for every line: would removing this cause a mistake? If not, cut it.</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="ttl">Load on demand</span><span class="tag">Skills</span></div>
+        <div class="sub">Only the metadata sits in context. The full file loads when that work starts.</div>
+        <div class="files">
+          <div class="file"><div class="fn">design-philosophy</div><div class="fd">Loads when the design critic is reviewing design.</div></div>
+          <div class="file"><div class="fn">marketing-philosophy</div><div class="fd">Loads when the marketing agent is writing copy.</div></div>
+          <div class="file"><div class="fn">humanize-standard</div><div class="fd">Loads when a producing agent runs its pre-done check.</div></div>
+          <div class="file"><div class="fn">engineering-standards</div><div class="fd">Loads when the principal engineer is reviewing code.</div></div>
         </div>
-        <div>
-          <dt>Scoped in writing</dt>
-          <dd>What is included, what is not, and what a change costs. Agreed before anyone starts.</dd>
-        </div>
-        <div>
-          <dt>Yours at the end</dt>
-          <dd>Files, systems, and documentation transfer to you. No dependency by design.</dd>
-        </div>
-      </dl>
+        <div class="sub" style="margin:16px 0 0">One lens at a time, the way you would actually work. Not six personas at once.</div>
+      </div>
     </div>
   </section>
 
-  <section class="contact">
-    <div class="rule"><div class="eyebrow">Start a conversation</div></div>
-    <p>Tell me what you are building and where it is stuck. If it is a fit I will say so, and if it is not I will tell you that too.</p>
-    <p style="margin-top:1.25rem"><a href="mailto:hello@stevemackenzie.com">hello@stevemackenzie.com</a></p>
+  <section>
+    <div class="sec-label">The quality floor &middot; unmistakably human</div>
+    <p class="intro">Every producing agent runs one check before calling anything done: <strong>would this be mistaken for AI-generated, and where exactly?</strong> The root cause is the absence of intention, the statistical average of everything made confidently, with no specific human choice behind it. The fix, in a word, is to humanize it.</p>
+    <div class="tells">
+      <div class="tell"><div class="m">Images</div><div class="x">Over-glossy plastic look, hyper-symmetry, mangled hands and text, the generic gradient palette, subjects floating with no context.</div></div>
+      <div class="tell"><div class="m">Video</div><div class="x">Morphing textures, slightly wrong physics, dead eyes, uncanny smoothness, cuts that break continuity because no real space existed.</div></div>
+      <div class="tell"><div class="m">Copy</div><div class="x">Em dashes, the "not just X, it's Y" cadence, relentless three-part lists, puffery, confident blandness with nothing at stake.</div></div>
+      <div class="tell"><div class="m">Apps / UI</div><div class="x">The default gradient hero, three feature cards, emoji bullets, spacing that is technically fine but has no point of view.</div></div>
+    </div>
+    <div class="antidote"><b>The antidote is intention.</b> Specificity over generality, a real point of view, deliberate imperfection and human texture, restraint, and references to actual craft rather than the average of everything. Work saturated with specific human choices cannot be mistaken for machine-made.</div>
   </section>
 
-  <footer>The Product Shop Corp. <span class="dot">&middot;</span> Ottawa, Canada</footer>
+  <section>
+    <div class="sec-label">Where the work lives &middot; three workspaces</div>
+    <div class="spaces">
+      <div class="space"><div class="n">Chat</div><div class="r">Think &middot; decide &middot; review</div><div class="d">Fast, decision-heavy work. Design dialogue, architecture calls, copy critique. Where agents advise and you steer each move.</div></div>
+      <div class="space"><div class="n">Claude Code</div><div class="r">Build &middot; in the repo</div><div class="d">Anything touching the codebase. Standards live in the repo, so engineering rigor gets checked against real code.</div></div>
+      <div class="space"><div class="n">Cowork</div><div class="r">Delegate &middot; execute</div><div class="d">Multi-step execution once the thinking is done: running an agent across a whole screen set or a full deck.</div></div>
+    </div>
+    <p class="rule">The rule: chat is where you decide, Cowork is where you delegate the doing, and Code is where anything touching the codebase happens.</p>
+  </section>
 
+  <section>
+    <div class="sec-label">Operating habits &middot; what keeps it from rotting</div>
+    <div class="habits">
+      <div class="habit"><div class="hn">Keep the always-on layer lean</div><div class="hd">Everything loaded every session competes for a limited budget. Depth goes in on-demand skills, not the core.</div></div>
+      <div class="habit"><div class="hn">Record decisions in the same session</div><div class="hd">When a real decision lands, it goes into the project's decisions.md that session, with its reasoning. A stale file is worse than a missing one; it confidently misleads.</div></div>
+      <div class="habit"><div class="hn">Gotchas grow from real mistakes</div><div class="hd">When something goes wrong, the correction goes into the file so it never repeats. A living feedback loop, not a guessed-at manual.</div></div>
+      <div class="habit"><div class="hn">Agents are honest, not flattering</div><div class="hd">Every role is instructed to tell you when something is not good enough. An agent that only validates cannot make work world-class.</div></div>
+      <div class="habit"><div class="hn">Principles universal, voice per client</div><div class="hd">Craft standards live at the firm level; specific expression lives per client. This is what stops every client's work looking the same.</div></div>
+      <div class="habit"><div class="hn">Do not over-build</div><div class="hd">Simple beats complex. One lens at a time, not six personas at once. Context discipline over architectural cleverness.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="idx-head">
+      <span class="l">The work &middot; what I'm building</span>
+      <span class="r">5 projects</span>
+    </div>
+
+    <a class="row" href="https://claude.ai/code/artifact/43188124-150a-4baf-ae10-6944b19b823d">
+      <div>
+        <div class="p-name">Quench</div>
+        <div class="p-desc">A charging companion that makes power and battery health legible across your devices. Formerly Ampr.</div>
+        <div class="p-tags"><span class="tag2">iOS</span><span class="tag2">Prototype</span><span class="tag2">2 pieces</span></div>
+      </div>
+      <div class="aside">
+        <span class="status live"><span class="d"></span>Live</span>
+        <span class="cta">Open <span class="arw">&rarr;</span></span>
+      </div>
+    </a>
+
+    <a class="row" href="https://claude.ai/code/artifact/6819cb25-bf13-449f-ae6b-da445d080333">
+      <div>
+        <div class="p-name">PriceScout</div>
+        <div class="p-desc">A price comparison web app that searches live retail listings, filters out refurbished and grey market noise, and shows what every major retailer actually charges.</div>
+        <div class="p-tags"><span class="tag2">Web &middot; Next.js</span><span class="tag2">Live app</span><span class="tag2">2 pieces</span></div>
+      </div>
+      <div class="aside">
+        <span class="status live"><span class="d"></span>Live</span>
+        <span class="cta">Open <span class="arw">&rarr;</span></span>
+      </div>
+    </a>
+
+    <div class="row soon">
+      <div>
+        <div class="p-name">Mindstride</div>
+        <div class="p-desc">The wallet section of a virtual mental health care app. Prescriptions, supplements, and vaccines in one calm place.</div>
+        <div class="p-tags"><span class="tag2">iOS &middot; SwiftUI</span><span class="tag2">Prototype</span></div>
+      </div>
+      <div class="aside"><span class="status"><span class="d"></span>Page coming</span></div>
+    </div>
+
+    <div class="row soon">
+      <div>
+        <div class="p-name">Cheddar</div>
+        <div class="p-desc">A consumer product with a known design system, from brand and logo through screen explorations.</div>
+        <div class="p-tags"><span class="tag2">Brand &amp; product</span><span class="tag2">Design</span></div>
+      </div>
+      <div class="aside"><span class="status"><span class="d"></span>Page coming</span></div>
+    </div>
+
+    <div class="row soon">
+      <div>
+        <div class="p-name">Dexacam</div>
+        <div class="p-desc">An early-stage product, in the shop's system and ready to build out when it is next picked up.</div>
+        <div class="p-tags"><span class="tag2">Product</span><span class="tag2">Early</span></div>
+      </div>
+      <div class="aside"><span class="status"><span class="d"></span>Page coming</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>The Product Shop &middot; Ottawa</span>
+    <span>Apple&rsquo;s standard of care</span>
+  </footer>
 </div>
+
 </body>
 </html>
