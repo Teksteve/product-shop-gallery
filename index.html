@@ -1,86 +1,266 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Product Shop — Prototypes</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Product Shop, product design studio in Ottawa</title>
+<meta name="description" content="Product design and UX for teams shipping real software. Twenty years of craft, delivered at AI speed.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;800&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #F7F7F4;
-    --ink: #14171A;
-    --muted: #6B7480;
-    --line: #E2E2DC;
-    --accent: #2A56E8;
-    --card: #FFFFFF;
+    --bg: #0D0D0C;
+    --surface: #151514;
+    --line: #2A2926;
+    --line-soft: #201F1D;
+    --text: #F2EFE9;
+    --muted: #A6A199;
+    --dim: #6E6A63;
+    --accent: #6FA292;
+    --measure: 34rem;
   }
-  * { box-sizing: border-box; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 48px 20px 80px; }
-  header { border-bottom: 1px solid var(--ink); padding-bottom: 28px; margin-bottom: 40px; }
-  .mono { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
-  header .mono { color: var(--muted); }
-  h1 {
-    font-family: 'Archivo', sans-serif;
-    font-weight: 800;
-    font-size: clamp(34px, 7vw, 56px);
-    letter-spacing: -0.03em;
-    line-height: 1.02;
-    margin-top: 10px;
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 5.5rem 1.5rem 6rem; }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
   }
-  header p { color: var(--muted); margin-top: 12px; max-width: 46ch; font-size: 15px; line-height: 1.5; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px; }
+
+  h1 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(3rem, 11vw, 5.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    margin: 1rem 0 1.75rem;
+  }
+
+  .lede {
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: var(--measure);
+  }
+  .lede strong { color: var(--text); font-weight: 400; }
+
+  .meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--dim);
+    margin-top: 2.25rem;
+    line-height: 1.9;
+  }
+  .meta span { white-space: nowrap; }
+  .dot { color: var(--line); padding: 0 0.55rem; }
+
+  section { margin-top: 5.5rem; }
+  .rule {
+    border-bottom: 1px solid var(--line-soft);
+    padding-bottom: 0.875rem;
+    margin-bottom: 2.25rem;
+  }
+
+  h2 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+
+  p { max-width: var(--measure); color: var(--muted); }
+  p + p { margin-top: 1rem; }
+
+  .cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 46rem) { .cards { grid-template-columns: repeat(3, 1fr); } }
+
   .card {
-    background: var(--card);
+    background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 6px;
-    overflow: hidden;
+    border-radius: 4px;
+    padding: 1.375rem 1.25rem 1.5rem;
+  }
+  .card .eyebrow { color: var(--accent); }
+  .card h3 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: 1.3125rem;
+    letter-spacing: -0.01em;
+    margin: 0.625rem 0 0.625rem;
+  }
+  .card p { font-size: 0.9375rem; line-height: 1.55; }
+
+  .work { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 40rem) { .work { grid-template-columns: repeat(2, 1fr); } }
+
+  a.tile {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
     text-decoration: none;
     color: inherit;
-    display: flex;
-    flex-direction: column;
-    transition: border-color 120ms ease, transform 120ms ease;
+    display: block;
+    overflow: hidden;
+    transition: border-color 140ms ease;
   }
-  .card:hover { border-color: var(--ink); transform: translateY(-2px); }
-  .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .thumb { aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--line); background: #101418; }
-  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .card-body { padding: 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-  .tag { color: var(--accent); }
-  .card h2 { font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: -0.01em; }
-  .card p { color: var(--muted); font-size: 14px; line-height: 1.45; flex: 1; }
-  .card .meta { color: var(--muted); margin-top: 8px; }
-  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-  @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+  a.tile:hover { border-color: var(--dim); }
+  a.tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .tile .thumb {
+    aspect-ratio: 16 / 10;
+    background: #0A0A09;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .tile .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tile .body { padding: 1.125rem 1.25rem 1.375rem; }
+  .tile h3 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin: 0.5rem 0 0.5rem;
+  }
+  .tile p { font-size: 0.9375rem; line-height: 1.5; }
+  .tile .status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: 1rem;
+    display: block;
+  }
+
+  .terms { border-top: 1px solid var(--line-soft); margin-top: 1.5rem; padding-top: 1.5rem; }
+  .terms dl { display: grid; gap: 1.25rem; }
+  @media (min-width: 40rem) { .terms dl { grid-template-columns: repeat(2, 1fr); gap: 1.75rem 2.5rem; } }
+  .terms dt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.375rem;
+  }
+  .terms dd { color: var(--muted); font-size: 0.9375rem; line-height: 1.55; }
+
+  .contact a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1px;
+  }
+  .contact a:hover { border-color: var(--accent); }
+
+  footer {
+    margin-top: 5.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line-soft);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    a.tile { transition: none; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <header>
-    <div class="mono">The Product Shop</div>
-    <h1>Prototypes on the bench</h1>
-    <p>Working experiments, straight from the shop. Each one is a real, clickable build, not a mockup.</p>
+    <div class="eyebrow">Product design studio <span class="dot">&middot;</span> Ottawa</div>
+    <h1>The Product Shop</h1>
+    <p class="lede">Software that feels obvious to use rarely happens by accident. <strong>It is the result of someone caring about the details your users will never consciously notice.</strong> That is the work.</p>
+    <div class="meta">
+      <span>Steve MacKenzie</span><span class="dot">&middot;</span><span>Product design &amp; UX</span><span class="dot">&middot;</span><span>Twenty years of craft, delivered at AI speed</span>
+    </div>
   </header>
 
-  <div class="grid">
-    <a class="card" href="pricescout/">
-      <div class="thumb"><img src="pricescout/thumb.svg" alt="PriceScout interface preview"></div>
-      <div class="card-body">
-        <div class="mono tag">PROTO-001</div>
-        <h2>PriceScout</h2>
-        <p>Track any electronics product. Search any electronics product. An AI agent finds live offers, flags the best price, and calls buy or wait.</p>
-        <div class="mono meta">Updated Jul 26 2026</div>
+  <section>
+    <div class="rule"><div class="eyebrow">What you get</div></div>
+    <div class="cards">
+      <div class="card">
+        <div class="eyebrow">Design</div>
+        <h3>A real second opinion</h3>
+        <p>Your flows reviewed against a bar most teams do not have time to hold. You find the friction before your users do.</p>
       </div>
-    </a>
-  </div>
+      <div class="card">
+        <div class="eyebrow">Build</div>
+        <h3>Prototypes that run</h3>
+        <p>Not mockups. Clickable builds you can put in front of a customer the same week you asked for them.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Hand off</div>
+        <h3>Work that outlives me</h3>
+        <p>Design systems and documentation your team can run without calling me. The engagement ends; the standard stays.</p>
+      </div>
+    </div>
+  </section>
 
-  <footer>Maintained by Claude for The Product Shop.</footer>
+  <section>
+    <div class="rule"><div class="eyebrow">Work</div></div>
+    <div class="work">
+      <a class="tile" href="pricescout/">
+        <div class="thumb"><img src="pricescout/thumb.svg" alt="PriceScout interface preview"></div>
+        <div class="body">
+          <div class="eyebrow">Proto-001</div>
+          <h3>PriceScout</h3>
+          <p>Search any electronics product and get the live offers, the best price, and a plain call on whether to buy now or wait.</p>
+          <span class="status">Static preview</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="rule"><div class="eyebrow">How engagements work</div></div>
+    <div class="terms">
+      <dl>
+        <div>
+          <dt>Priced by deliverable</dt>
+          <dd>You know the cost before the work starts. No hourly meter running while you think.</dd>
+        </div>
+        <div>
+          <dt>One person, start to finish</dt>
+          <dd>The person you brief is the person who does the work. Nothing gets lost in a handoff.</dd>
+        </div>
+        <div>
+          <dt>Scoped in writing</dt>
+          <dd>What is included, what is not, and what a change costs. Agreed before anyone starts.</dd>
+        </div>
+        <div>
+          <dt>Yours at the end</dt>
+          <dd>Files, systems, and documentation transfer to you. No dependency by design.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="rule"><div class="eyebrow">Start a conversation</div></div>
+    <p>Tell me what you are building and where it is stuck. If it is a fit I will say so, and if it is not I will tell you that too.</p>
+    <p style="margin-top:1.25rem"><a href="mailto:hello@stevemackenzie.com">hello@stevemackenzie.com</a></p>
+  </section>
+
+  <footer>The Product Shop Corp. <span class="dot">&middot;</span> Ottawa, Canada</footer>
+
 </div>
 </body>
 </html>
